@@ -58,6 +58,15 @@ public class ReproducerTest extends BottleRocketTest {
     }
 
     private void setUp() {
+        ref2 = new ReferenceDocument();
+        ref2.id = 3;
+        datastore.save(ref2);
+
+        doc2 = new RootDocument();
+        doc2.id = 4;
+        doc2.ref = ref2;
+        datastore.save(doc2);
+
         ref1 = new ReferenceDocument();
         ref1.id = 2;
         datastore.save(ref1);
@@ -67,14 +76,6 @@ public class ReproducerTest extends BottleRocketTest {
         doc1.ref = ref1;
         datastore.save(doc1);
 
-        ref2 = new ReferenceDocument();
-        ref2.id = 2;
-        datastore.save(ref2);
-
-        doc2 = new RootDocument();
-        doc2.id = 1;
-        doc2.ref = ref2;
-        datastore.save(doc2);
     }
 
     private void tearDown() {
